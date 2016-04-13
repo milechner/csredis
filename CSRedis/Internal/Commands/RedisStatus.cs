@@ -49,7 +49,7 @@ namespace CSRedis.Internal.Commands
                     return reader.ReadStatus(false);
 
                 object[] result = reader.ReadMultiBulk(false);
-                if (result != null)
+                if (result != null && result.Length > 0)
                     throw new RedisProtocolException("Expecting null MULTI BULK response. Received: " + result.ToString());
 
                 return null;

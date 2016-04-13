@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -24,7 +25,16 @@ namespace CSRedis.Internal.IO
         {
             string prepared = Prepare(command);
             byte[] data = _io.Encoding.GetBytes(prepared);
-            stream.Write(data, 0, data.Length);
+	        try
+	        {
+				stream.Write(data, 0, data.Length);
+	        }
+	        catch (System.Exception)
+	        {
+				Debugger.Break();
+		        throw;
+	        }
+            
             return data.Length;
         }
 
