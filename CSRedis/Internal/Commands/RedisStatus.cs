@@ -50,7 +50,7 @@ namespace CSRedis.Internal.Commands
 
                 object[] result = reader.ReadMultiBulk(false);
                 if (result != null && result.Length > 0)
-                    throw new RedisProtocolException("Expecting null MULTI BULK response. Received: " + result.ToString());
+                    throw new RedisProtocolException("Expecting null MULTI BULK response for command '" + this.Command + "'. Received: " + String.Join(", ", result));
 
                 return null;
             }
