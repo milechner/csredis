@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="RedisSentinelManager.cs" />
     <Compile Include="Internal\Utilities\Serializer.cs" />
+    <Compile Include="EndpointUtil.cs" />
     <Compile Include="Types.cs" />
   </ItemGroup>
   <ItemGroup>

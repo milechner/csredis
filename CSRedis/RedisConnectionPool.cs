@@ -25,7 +25,7 @@ namespace CSRedis
         /// <param name="port">Redis server port</param>
         /// <param name="max">Maximum simultaneous connections</param>
         public RedisConnectionPool(string host, int port, int max)
-            : this(new DnsEndPoint(host, port), max)
+            : this(EndpointUtil.fromHostAndPort(host, port), max)
         { }
 
         /// <summary>
